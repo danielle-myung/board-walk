@@ -3554,3 +3554,20 @@
 2026-04-27T01:10:42.740433Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T01:10:43.405100Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex::handlers: Shutting down Codex instance
 2026-04-27T01:10:43.406581Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: close time.busy=7.06s time.idle=2022s
+2026-04-27T01:10:46.671372Z ERROR codex_core::rollout::recorder: Falling back on rollout system
+2026-04-27T01:10:46.671399Z  WARN codex_core::state_db: state db record_discrepancy: list_threads_with_db_fallback, falling_back
+2026-04-27T01:10:46.676853Z  INFO codex_core::rollout::recorder: Resuming rollout from "/home/vibecode/.codex/sessions/2026/04/27/rollout-2026-04-27T00-36-54-019dcc5e-22f2-7330-a996-44f526f8cfb2.jsonl"
+2026-04-27T01:10:46.685555Z  INFO codex_core::rollout::recorder: Resumed rollout successfully from "/home/vibecode/.codex/sessions/2026/04/27/rollout-2026-04-27T00-36-54-019dcc5e-22f2-7330-a996-44f526f8cfb2.jsonl"
+2026-04-27T01:10:46.686462Z  INFO codex_core::skills::manager: skills cache cleared (0 entries)
+2026-04-27T01:10:46.797354Z ERROR codex_core::models_manager::manager: failed to refresh available models: unexpected status 401 Unauthorized: Missing bearer authentication in header, url: https://api.openai.com/v1/models?client_version=0.98.0, cf-ray: 9f29f30dfa767693-SEA, request id: 59c22d29-22b5-4296-a7aa-8a8f474a6907
+2026-04-27T01:10:46.797911Z  INFO session_init: codex_core::codex: new
+2026-04-27T01:10:46.803639Z  INFO session_init: codex_core::codex: close time.busy=5.69ms time.idle=39.8µs
+2026-04-27T01:10:46.803653Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: new
+2026-04-27T01:10:47.688136Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:48.688810Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:49.689985Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:50.690686Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:51.692180Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:52.692810Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:53.694430Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:54.695477Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
