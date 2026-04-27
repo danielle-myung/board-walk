@@ -139,6 +139,7 @@ function initializeUI() {
   });
 
   dom.castButton.addEventListener("click", handleCast);
+  dom.dockCastButton.addEventListener("click", handleCast);
 
   const today = toLocalISO();
   dom.logDate.value = today;
@@ -247,6 +248,7 @@ function handleCast() {
     const pearls = 1 + Math.floor(Math.random() * 3);
     state.profile.treasurePearls += pearls;
     state.profile.totalTreasure += 1;
+    state.profile.lastCatch = "treasure";
     setMessage(dom.fishMessage, `Treasure chest! +${pearls} pearls.`);
   } else {
     const unlocked = getUnlockedCount(state.profile.level);
@@ -254,6 +256,7 @@ function handleCast() {
     state.collection.fishCounts[fish.id] =
       (state.collection.fishCounts[fish.id] || 0) + 1;
     state.collection.totalCaught += 1;
+    state.profile.lastCatch = fish.id;
     setMessage(dom.fishMessage, `You caught a ${fish.name}.`);
   }
 
