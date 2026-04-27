@@ -292,11 +292,26 @@ function updateUI() {
 
   dom.fishCasts.textContent = `${state.profile.casts} casts`;
   dom.castButton.disabled = state.profile.casts <= 0;
+  dom.dockCastButton.disabled = state.profile.casts <= 0;
+
+  dom.dockCatchSprite.dataset.fish = state.profile.lastCatch || "none";
+  dom.dockCatchText.textContent = getCatchLabel(state.profile.lastCatch);
 
   renderFishPool();
   renderHistory();
   renderProgress();
   renderCollection();
+}
+
+function getCatchLabel(lastCatch) {
+  if (!lastCatch || lastCatch === "none") {
+    return "No catch yet";
+  }
+  if (lastCatch === "treasure") {
+    return "Treasure chest";
+  }
+  const fish = fishList.find((item) => item.id === lastCatch);
+  return fish ? fish.name : "Fresh catch";
 }
 
 function renderFishPool() {
@@ -373,16 +388,18 @@ function renderProgress() {
 }
 
 function renderFishCard(fish, unlocked, count = 0, showCount = false) {
-  const letter = fish.name[0].toUpperCase();
   const countLabel = showCount
     ? `<span class="label">Caught: ${count}</span>`
     : "";
   const statusLabel = unlocked ? fish.name : "Locked";
+  const spriteId = unlocked ? fish.id : "locked";
   return `
     <div class="fish-card ${unlocked ? "" : "locked"}">
-      <div class="fish-badge">${letter}</div>
-      <strong>${statusLabel}</strong>
-      ${countLabel}
+      <span class="fish-sprite" data-fish="${spriteId}"></span>
+      <div class="fish-info">
+        <strong>${statusLabel}</strong>
+        ${countLabel}
+      </div>
     </div>
   `;
 }
