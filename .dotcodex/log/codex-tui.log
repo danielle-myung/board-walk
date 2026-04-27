@@ -1894,3 +1894,122 @@
 2026-04-27T00:57:52.894554Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:57:53.895721Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:57:54.896540Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:55.897862Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:56.898019Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:57.899781Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:58.900774Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:59.044267Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: apply_patch *** Begin Patch
+*** Update File: /home/vibecode/workspace/main.js
+@@
+     totalTreasure: 0,
+     treasurePearls: 0,
+     totalLogCasts: 0,
+     totalLogPearls: 0,
+     daysLogged: 0,
+     boardwalkStage: 0,
+     lastLoggedDate: "",
+-    unlockedCount: STARTER_FISH
++    unlockedCount: STARTER_FISH,
++    lastCatch: "none"
+   },
+@@
+   homeLastLog: document.getElementById("home-last-log"),
+   homeStreak: document.getElementById("home-streak"),
++  dockCastButton: document.getElementById("dock-cast-button"),
++  dockCatchSprite: document.getElementById("dock-catch-sprite"),
++  dockCatchText: document.getElementById("dock-catch-text"),
+   logForm: document.getElementById("log-form"),
+   logDate: document.getElementById("log-date"),
+@@
+   dom.modalCloseButtons.forEach((button) => {
+     button.addEventListener("click", closeAllModals);
+   });
+@@
+   dom.logForm.addEventListener("submit", handleLogSubmit);
+   dom.loadEntry.addEventListener("click", handleLoadEntry);
+   [dom.logDate, dom.logSteps, dom.logGoal, dom.logMiles].forEach((input) => {
+     input.addEventListener("input", updateLogPreview);
+   });
+ 
+   dom.castButton.addEventListener("click", handleCast);
++  dom.dockCastButton.addEventListener("click", handleCast);
+@@
+   dom.homeStreak.textContent = streakLabel;
+ 
+   dom.fishCasts.textContent = `${state.profile.casts} casts`;
+   dom.castButton.disabled = state.profile.casts <= 0;
++  dom.dockCastButton.disabled = state.profile.casts <= 0;
++
++  const catchLabel = getCatchLabel(state.profile.lastCatch);
++  dom.dockCatchSprite.dataset.fish = state.profile.lastCatch || "none";
++  dom.dockCatchText.textContent = catchLabel;
+ 
+   renderFishPool();
+   renderHistory();
+   renderProgress();
+   renderCollection();
+ }
+@@
+   if (roll < 0.01) {
+     const pearls = 1 + Math.floor(Math.random() * 3);
+     state.profile.treasurePearls += pearls;
+     state.profile.totalTreasure += 1;
++    state.profile.lastCatch = "treasure";
+     setMessage(dom.fishMessage, `Treasure chest! +${pearls} pearls.`);
+   } else {
+     const unlocked = getUnlockedCount(state.profile.level);
+     const fish = fishList[Math.floor(Math.random() * unlocked)];
+     state.collection.fishCounts[fish.id] =
+       (state.collection.fishCounts[fish.id] || 0) + 1;
+     state.collection.totalCaught += 1;
++    state.profile.lastCatch = fish.id;
+     setMessage(dom.fishMessage, `You caught a ${fish.name}.`);
+   }
+*** End Patch thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:57:59.058046Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=51729 estimated_token_count=Some(473306) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:57:59.901631Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:00.902207Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:01.433324Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: exec_command {"cmd":"rg -n \"lastCatch|handleCast|fishMessage\" /home/vibecode/workspace/main.js"} thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:58:01.522217Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=51951 estimated_token_count=Some(473563) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:58:01.903144Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:02.904939Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:03.822461Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: exec_command {"cmd":"sed -n '40,120p' /home/vibecode/workspace/main.js"} thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:58:03.906700Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:03.908019Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=52785 estimated_token_count=Some(474407) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:58:04.907316Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:05.908472Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:06.120367Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: exec_command {"cmd":"sed -n '120,220p' /home/vibecode/workspace/main.js"} thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:58:06.204990Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=53526 estimated_token_count=Some(475191) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:58:06.909475Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:07.910644Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:08.911800Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:09.363750Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: apply_patch *** Begin Patch
+*** Update File: /home/vibecode/workspace/main.js
+@@
+     daysLogged: 0,
+     boardwalkStage: 0,
+     lastLoggedDate: "",
+-    unlockedCount: STARTER_FISH
++    unlockedCount: STARTER_FISH,
++    lastCatch: "none"
+   },
+*** End Patch thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:58:09.380735Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=53687 estimated_token_count=Some(475399) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:58:09.912521Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:10.913806Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:11.914584Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:12.915035Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:13.234011Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: apply_patch *** Begin Patch
+*** Update File: /home/vibecode/workspace/main.js
+@@
+   homeGoal: document.getElementById("home-goal"),
+   homeLastLog: document.getElementById("home-last-log"),
+   homeStreak: document.getElementById("home-streak"),
++  dockCastButton: document.getElementById("dock-cast-button"),
++  dockCatchSprite: document.getElementById("dock-catch-sprite"),
++  dockCatchText: document.getElementById("dock-catch-text"),
+   logForm: document.getElementById("log-form"),
+*** End Patch thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:58:13.250024Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=53883 estimated_token_count=Some(475638) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:58:13.916759Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:58:14.917461Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)

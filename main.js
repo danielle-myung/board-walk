@@ -46,7 +46,8 @@ const DEFAULT_STATE = {
     daysLogged: 0,
     boardwalkStage: 0,
     lastLoggedDate: "",
-    unlockedCount: STARTER_FISH
+    unlockedCount: STARTER_FISH,
+    lastCatch: "none"
   },
   entries: {},
   collection: {
@@ -69,6 +70,9 @@ const dom = {
   homeGoal: document.getElementById("home-goal"),
   homeLastLog: document.getElementById("home-last-log"),
   homeStreak: document.getElementById("home-streak"),
+  dockCastButton: document.getElementById("dock-cast-button"),
+  dockCatchSprite: document.getElementById("dock-catch-sprite"),
+  dockCatchText: document.getElementById("dock-catch-text"),
   logForm: document.getElementById("log-form"),
   logDate: document.getElementById("log-date"),
   logSteps: document.getElementById("log-steps"),
