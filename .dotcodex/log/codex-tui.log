@@ -1497,3 +1497,98 @@
 2026-04-27T00:57:22.858325Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:57:23.859173Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:57:24.860779Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:25.861934Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:26.863517Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:27.864207Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:28.865947Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:29.867798Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:30.868895Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:31.870013Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:32.871540Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:33.872642Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:34.872959Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:35.587815Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: apply_patch *** Begin Patch
+*** Update File: /home/vibecode/workspace/index.html
+@@
+         <div class="brand">
+           <p class="logo">Board Walk</p>
+-          <p class="tag">Daily wellness ritual, ocean side.</p>
+         </div>
+         <div class="status-bar">
+           <div class="status-item">
+             <span class="label">Level</span>
+             <span class="value" id="status-level">1</span>
+           </div>
+           <div class="status-item">
+             <span class="label">Pearls</span>
+-            <span class="value" id="status-pearls">0</span>
++            <span class="stat-row">
++              <span class="stat-icon icon-pearls" aria-hidden="true"></span>
++              <span class="value" id="status-pearls">0</span>
++            </span>
+           </div>
+           <div class="status-item">
+             <span class="label">Casts</span>
+-            <span class="value" id="status-casts">0</span>
++            <span class="stat-row">
++              <span class="stat-icon icon-casts" aria-hidden="true"></span>
++              <span class="value" id="status-casts">0</span>
++            </span>
+           </div>
+           <div class="status-item">
+             <span class="label">Streak</span>
+-            <span class="value" id="status-streak">0</span>
++            <span class="stat-row">
++              <span class="stat-icon icon-streak" aria-hidden="true"></span>
++              <span class="value" id="status-streak">0</span>
++            </span>
+           </div>
+         </div>
+       </header>
+@@
+             <div class="scene-header">
+               <div>
+                 <p class="eyebrow">Boardwalk</p>
+-                <h1>Keep the planks growing.</h1>
+               </div>
+               <div class="stage-badge" id="boardwalk-stage">Stage 1</div>
+             </div>
+             <div class="scene">
+@@
+               <div class="dock">
+                 <div class="dock-planks" id="boardwalk-progress"></div>
+                 <div class="dock-end"></div>
+               </div>
++              <div class="dock-ui">
++                <button class="dock-button" id="dock-cast-button">Fish</button>
++                <div class="dock-catch">
++                  <span class="fish-sprite dock-sprite" id="dock-catch-sprite" data-fish="none"></span>
++                  <span class="dock-catch-text" id="dock-catch-text">No catch yet</span>
++                </div>
++              </div>
+               <div class="fisher">
+                 <div class="fisher-hat"></div>
+                 <div class="fisher-face"></div>
+                 <div class="fisher-body"></div>
+@@
+           </div>
+ 
+           <div class="panel action-panel">
+             <p class="eyebrow">Quick actions</p>
+-            <h2>Log today, then cast.</h2>
+             <div class="button-stack">
+               <button class="primary" data-modal-target="modal-log">Log Day</button>
+               <button class="ghost" data-modal-target="modal-fish">Fish</button>
+               <button class="ghost" data-modal-target="modal-history">History</button>
+*** End Patch thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:57:35.616826Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=1216 total_usage_tokens=48568 estimated_token_count=Some(470739) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:57:35.874858Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:36.875249Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:37.876387Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:38.877696Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:39.878714Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:40.879515Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:41.880930Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:42.882713Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:43.883040Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:57:44.884388Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
