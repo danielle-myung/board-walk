@@ -85,3 +85,14 @@
 2026-04-27T00:36:33.008829Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:36:34.009611Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:36:35.011082Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:36:36.012427Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:36:37.013185Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:36:38.013771Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:36:39.015282Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:36:54.512072Z ERROR codex_core::rollout::recorder: Falling back on rollout system
+2026-04-27T00:36:54.512094Z  WARN codex_core::state_db: state db record_discrepancy: list_threads_with_db_fallback, falling_back
+2026-04-27T00:36:54.515592Z  INFO codex_core::skills::manager: skills cache cleared (0 entries)
+2026-04-27T00:36:54.641597Z ERROR codex_core::models_manager::manager: failed to refresh available models: unexpected status 401 Unauthorized: Missing bearer authentication in header, url: https://api.openai.com/v1/models?client_version=0.98.0, cf-ray: 9f29c170ff5408fb-SEA, request id: 9111a1bb-f3a5-4876-8972-91f8e0411c3d
+2026-04-27T00:36:54.641998Z  INFO session_init: codex_core::codex: new
+2026-04-27T00:36:54.648745Z  INFO session_init: codex_core::codex: close time.busy=1.14ms time.idle=5.61ms
+2026-04-27T00:36:54.648758Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: new
