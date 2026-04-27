@@ -209,7 +209,7 @@ main {
   border-radius: 8px;
   overflow: hidden;
   background: linear-gradient(180deg, #2c1d12 0%, #4f331d 45%, #6f4b2a 100%);
-  --dock-length: calc(38% + (var(--boardwalk-stage) * 12%));
+  --dock-length: calc(55% + (var(--boardwalk-stage) * 8%));
 }
 
 .scene-frame {

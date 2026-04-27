@@ -293,7 +293,7 @@ function updateUI() {
 
   dom.fishCasts.textContent = `${state.profile.casts} casts`;
   dom.castButton.disabled = state.profile.casts <= 0;
-  dom.dockCastButton.disabled = state.profile.casts <= 0;
+  dom.dockCastButton.disabled = false;
 
   dom.dockCatchSprite.dataset.fish = state.profile.lastCatch || "none";
   dom.dockCatchText.textContent = getCatchLabel(state.profile.lastCatch);
