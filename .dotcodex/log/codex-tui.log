@@ -3534,3 +3534,23 @@
 2026-04-27T01:10:23.718894Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T01:10:24.720779Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T01:10:25.257124Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=2015 total_usage_tokens=75981 estimated_token_count=Some(496386) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=false
+2026-04-27T01:10:25.721951Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:26.723267Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:27.724534Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:28.725756Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:29.726854Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:30.727264Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:31.728580Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:32.729877Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:33.730913Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:34.731069Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:35.732460Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:36.733485Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:37.734821Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:38.735529Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:39.736631Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:40.737560Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:41.738945Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:42.740433Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T01:10:43.405100Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex::handlers: Shutting down Codex instance
+2026-04-27T01:10:43.406581Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: close time.busy=7.06s time.idle=2022s
