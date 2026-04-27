@@ -57,9 +57,9 @@ const DEFAULT_STATE = {
 };
 
 const dom = {
-  screens: document.querySelectorAll(".screen"),
-  navButtons: document.querySelectorAll("[data-screen-target]"),
-  bottomNavButtons: document.querySelectorAll(".bottom-nav button"),
+  modalButtons: document.querySelectorAll("[data-modal-target]"),
+  modalCloseButtons: document.querySelectorAll("[data-modal-close]"),
+  modals: document.querySelectorAll(".modal"),
   statusLevel: document.getElementById("status-level"),
   statusPearls: document.getElementById("status-pearls"),
   statusCasts: document.getElementById("status-casts"),
@@ -101,13 +101,31 @@ initializeUI();
 updateUI();
 
 function initializeUI() {
-  dom.navButtons.forEach((button) => {
+  dom.modalButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const target = button.getAttribute("data-screen-target");
+      const target = button.getAttribute("data-modal-target");
       if (target) {
-        showScreen(target);
+        openModal(target);
       }
     });
+  });
+
+  dom.modalCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeAllModals);
+  });
+
+  dom.modals.forEach((modal) => {
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeAllModals();
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAllModals();
+    }
   });
 
   dom.logForm.addEventListener("submit", handleLogSubmit);
@@ -122,18 +140,20 @@ function initializeUI() {
   dom.logDate.value = today;
   dom.logGoal.value = state.profile.stepGoal;
   updateLogPreview();
-  showScreen("screen-home");
+  closeAllModals();
 }
 
-function showScreen(targetId) {
-  dom.screens.forEach((screen) => {
-    screen.classList.toggle("active", screen.id === targetId);
+function openModal(targetId) {
+  dom.modals.forEach((modal) => {
+    modal.classList.toggle("open", modal.id === targetId);
+    modal.setAttribute("aria-hidden", modal.id === targetId ? "false" : "true");
   });
-  dom.bottomNavButtons.forEach((button) => {
-    button.classList.toggle(
-      "active",
-      button.getAttribute("data-screen-target") === targetId
-    );
+}
+
+function closeAllModals() {
+  dom.modals.forEach((modal) => {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
   });
 }
 
