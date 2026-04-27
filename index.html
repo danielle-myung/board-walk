@@ -2,12 +2,223 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Board Walk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <canvas class="webgl"></canvas>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <p class="logo">Board Walk</p>
+          <p class="tag">Daily wellness ritual, ocean side.</p>
+        </div>
+        <div class="status-bar">
+          <div class="status-item">
+            <span class="label">Level</span>
+            <span class="value" id="status-level">1</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Pearls</span>
+            <span class="value" id="status-pearls">0</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Casts</span>
+            <span class="value" id="status-casts">0</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Streak</span>
+            <span class="value" id="status-streak">0</span>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="screen-home" class="screen active">
+          <div class="home-grid">
+            <div class="scene-card">
+              <div class="scene-header">
+                <div>
+                  <p class="eyebrow">Boardwalk</p>
+                  <h1>Keep the planks growing.</h1>
+                </div>
+                <div class="stage-badge" id="boardwalk-stage">Stage 1</div>
+              </div>
+              <div class="scene">
+                <div class="sun"></div>
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <div class="ocean"></div>
+                <div class="boardwalk">
+                  <div class="boardwalk-progress" id="boardwalk-progress">
+                    <div class="boardwalk-planks"></div>
+                  </div>
+                  <div class="boardwalk-end"></div>
+                </div>
+                <div class="fisher">
+                  <div class="fisher-hat"></div>
+                  <div class="fisher-body"></div>
+                  <div class="fisher-rod"></div>
+                </div>
+              </div>
+              <div class="scene-footer">
+                <div>
+                  <p class="label">Current goal</p>
+                  <p class="value" id="home-goal">8,000 steps</p>
+                </div>
+                <div>
+                  <p class="label">Last log</p>
+                  <p class="value" id="home-last-log">None yet</p>
+                </div>
+                <div>
+                  <p class="label">Active streak</p>
+                  <p class="value" id="home-streak">0 days</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <p class="eyebrow">Quick actions</p>
+              <h2>Log today, then cast.</h2>
+              <div class="button-stack">
+                <button class="primary" data-screen-target="screen-log">Log Day</button>
+                <button class="ghost" data-screen-target="screen-fish">Go Fishing</button>
+                <button class="ghost" data-screen-target="screen-history">View History</button>
+                <button class="ghost" data-screen-target="screen-progress">See Progress</button>
+              </div>
+              <div class="tip-card">
+                <p class="label">Today&apos;s ritual</p>
+                <p id="home-tip">Log steps, earn casts, and extend the boardwalk.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-log" class="screen">
+          <div class="panel">
+            <p class="eyebrow">Log day</p>
+            <h2>Enter today&apos;s movement.</h2>
+            <form id="log-form" class="form-grid">
+              <label>
+                <span>Date</span>
+                <input type="date" id="log-date" required />
+              </label>
+              <label>
+                <span>Steps</span>
+                <input type="number" id="log-steps" min="0" placeholder="0" required />
+              </label>
+              <label>
+                <span>Daily step goal</span>
+                <input type="number" id="log-goal" min="0" placeholder="8000" required />
+              </label>
+              <label>
+                <span>Miles run</span>
+                <input type="number" id="log-miles" min="0" step="0.1" placeholder="0" />
+              </label>
+              <label>
+                <span>Run duration (minutes)</span>
+                <input type="number" id="log-duration" min="0" step="1" placeholder="0" />
+              </label>
+              <div class="form-actions">
+                <button class="primary" type="submit">Save log</button>
+                <button class="ghost" type="button" id="load-entry">Load existing</button>
+              </div>
+            </form>
+            <div class="notice" id="log-message" role="status"></div>
+          </div>
+
+          <div class="panel summary-panel">
+            <p class="eyebrow">Expected rewards</p>
+            <div class="summary-grid">
+              <div>
+                <p class="label">Casts</p>
+                <p class="value" id="preview-casts">0</p>
+              </div>
+              <div>
+                <p class="label">Pearls</p>
+                <p class="value" id="preview-pearls">0</p>
+              </div>
+              <div>
+                <p class="label">Goal met?</p>
+                <p class="value" id="preview-goal">No</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-fish" class="screen">
+          <div class="panel">
+            <p class="eyebrow">Fishing</p>
+            <h2>Spend casts to catch fish.</h2>
+            <div class="fish-actions">
+              <div>
+                <p class="label">Available casts</p>
+                <p class="value" id="fish-casts">0</p>
+              </div>
+              <button class="primary" id="cast-button">Cast (1)</button>
+            </div>
+            <div class="notice" id="fish-message"></div>
+          </div>
+
+          <div class="panel">
+            <p class="eyebrow">Catch pool</p>
+            <div class="fish-grid" id="fish-pool"></div>
+          </div>
+        </section>
+
+        <section id="screen-history" class="screen">
+          <div class="panel">
+            <p class="eyebrow">History</p>
+            <h2>Your logged days.</h2>
+            <div class="history-list" id="history-list"></div>
+          </div>
+        </section>
+
+        <section id="screen-progress" class="screen">
+          <div class="panel">
+            <p class="eyebrow">Progress</p>
+            <h2>Level up the fisherman.</h2>
+            <div class="progress-header">
+              <div>
+                <p class="label">Level</p>
+                <p class="value" id="progress-level">1</p>
+              </div>
+              <div>
+                <p class="label">Total pearls</p>
+                <p class="value" id="progress-pearls">0</p>
+              </div>
+              <div>
+                <p class="label">Boardwalk stage</p>
+                <p class="value" id="progress-stage">1</p>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="level-progress"></div>
+            </div>
+            <p class="progress-note" id="progress-note">Keep logging to reach the next plank milestone.</p>
+          </div>
+
+          <div class="panel">
+            <p class="eyebrow">Collection</p>
+            <div class="collection-grid" id="collection-grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav">
+        <button data-screen-target="screen-home">Home</button>
+        <button data-screen-target="screen-log">Log Day</button>
+        <button data-screen-target="screen-fish">Fish</button>
+        <button data-screen-target="screen-history">History</button>
+        <button data-screen-target="screen-progress">Progress</button>
+      </nav>
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
