@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -39,100 +39,103 @@
       </header>
 
       <main>
-        <section id="screen-home" class="screen active">
-          <div class="home-grid">
-            <div class="scene-card">
-              <div class="scene-header">
-                <div>
-                  <p class="eyebrow">Boardwalk</p>
-                  <h1>Keep the planks growing.</h1>
-                </div>
-                <div class="stage-badge" id="boardwalk-stage">Stage 1</div>
+        <section class="home">
+          <div class="scene-card">
+            <div class="scene-header">
+              <div>
+                <p class="eyebrow">Boardwalk</p>
+                <h1>Keep the planks growing.</h1>
               </div>
-              <div class="scene">
-                <div class="sun"></div>
-                <div class="cloud cloud-one"></div>
-                <div class="cloud cloud-two"></div>
-                <div class="ocean"></div>
-                <div class="boardwalk">
-                  <div class="boardwalk-progress" id="boardwalk-progress">
-                    <div class="boardwalk-planks"></div>
-                  </div>
-                  <div class="boardwalk-end"></div>
-                </div>
-                <div class="fisher">
-                  <div class="fisher-hat"></div>
-                  <div class="fisher-body"></div>
-                  <div class="fisher-rod"></div>
-                </div>
+              <div class="stage-badge" id="boardwalk-stage">Stage 1</div>
+            </div>
+            <div class="scene">
+              <div class="scene-frame"></div>
+              <div class="pixel-sun"></div>
+              <div class="pixel-cloud cloud-one"></div>
+              <div class="pixel-cloud cloud-two"></div>
+              <div class="ocean"></div>
+              <div class="dock">
+                <div class="dock-planks" id="boardwalk-progress"></div>
+                <div class="dock-end"></div>
               </div>
-              <div class="scene-footer">
-                <div>
-                  <p class="label">Current goal</p>
-                  <p class="value" id="home-goal">8,000 steps</p>
-                </div>
-                <div>
-                  <p class="label">Last log</p>
-                  <p class="value" id="home-last-log">None yet</p>
-                </div>
-                <div>
-                  <p class="label">Active streak</p>
-                  <p class="value" id="home-streak">0 days</p>
-                </div>
+              <div class="fisher">
+                <div class="fisher-hat"></div>
+                <div class="fisher-face"></div>
+                <div class="fisher-body"></div>
+                <div class="fisher-rod"></div>
+              </div>
+              <div class="sparkles"></div>
+            </div>
+            <div class="scene-footer">
+              <div>
+                <p class="label">Current goal</p>
+                <p class="value" id="home-goal">8,000 steps</p>
+              </div>
+              <div>
+                <p class="label">Last log</p>
+                <p class="value" id="home-last-log">None yet</p>
+              </div>
+              <div>
+                <p class="label">Active streak</p>
+                <p class="value" id="home-streak">0 days</p>
               </div>
             </div>
+          </div>
 
-            <div class="panel">
-              <p class="eyebrow">Quick actions</p>
-              <h2>Log today, then cast.</h2>
-              <div class="button-stack">
-                <button class="primary" data-screen-target="screen-log">Log Day</button>
-                <button class="ghost" data-screen-target="screen-fish">Go Fishing</button>
-                <button class="ghost" data-screen-target="screen-history">View History</button>
-                <button class="ghost" data-screen-target="screen-progress">See Progress</button>
-              </div>
-              <div class="tip-card">
-                <p class="label">Today&apos;s ritual</p>
-                <p id="home-tip">Log steps, earn casts, and extend the boardwalk.</p>
-              </div>
+          <div class="panel action-panel">
+            <p class="eyebrow">Quick actions</p>
+            <h2>Log today, then cast.</h2>
+            <div class="button-stack">
+              <button class="primary" data-modal-target="modal-log">Log Day</button>
+              <button class="ghost" data-modal-target="modal-fish">Fish</button>
+              <button class="ghost" data-modal-target="modal-history">History</button>
+              <button class="ghost" data-modal-target="modal-progress">Progress</button>
+            </div>
+            <div class="tip-card">
+              <p class="label">Today&apos;s ritual</p>
+              <p id="home-tip">Log steps, earn casts, and extend the boardwalk.</p>
             </div>
           </div>
         </section>
+      </main>
 
-        <section id="screen-log" class="screen">
-          <div class="panel">
-            <p class="eyebrow">Log day</p>
-            <h2>Enter today&apos;s movement.</h2>
-            <form id="log-form" class="form-grid">
-              <label>
-                <span>Date</span>
-                <input type="date" id="log-date" required />
-              </label>
-              <label>
-                <span>Steps</span>
-                <input type="number" id="log-steps" min="0" placeholder="0" required />
-              </label>
-              <label>
-                <span>Daily step goal</span>
-                <input type="number" id="log-goal" min="0" placeholder="8000" required />
-              </label>
-              <label>
-                <span>Miles run</span>
-                <input type="number" id="log-miles" min="0" step="0.1" placeholder="0" />
-              </label>
-              <label>
-                <span>Run duration (minutes)</span>
-                <input type="number" id="log-duration" min="0" step="1" placeholder="0" />
-              </label>
-              <div class="form-actions">
-                <button class="primary" type="submit">Save log</button>
-                <button class="ghost" type="button" id="load-entry">Load existing</button>
-              </div>
-            </form>
-            <div class="notice" id="log-message" role="status"></div>
+      <div class="modal" id="modal-log" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">Log day</p>
+              <h2>Enter today&apos;s movement.</h2>
+            </div>
+            <button class="close" data-modal-close aria-label="Close">✕</button>
           </div>
-
-          <div class="panel summary-panel">
+          <form id="log-form" class="form-grid">
+            <label>
+              <span>Date</span>
+              <input type="date" id="log-date" required />
+            </label>
+            <label>
+              <span>Steps</span>
+              <input type="number" id="log-steps" min="0" placeholder="0" required />
+            </label>
+            <label>
+              <span>Daily step goal</span>
+              <input type="number" id="log-goal" min="0" placeholder="8000" required />
+            </label>
+            <label>
+              <span>Miles run</span>
+              <input type="number" id="log-miles" min="0" step="0.1" placeholder="0" />
+            </label>
+            <label>
+              <span>Run duration (minutes)</span>
+              <input type="number" id="log-duration" min="0" step="1" placeholder="0" />
+            </label>
+            <div class="form-actions">
+              <button class="primary" type="submit">Save log</button>
+              <button class="ghost" type="button" id="load-entry">Load existing</button>
+            </div>
+          </form>
+          <div class="notice" id="log-message" role="status"></div>
+          <div class="summary-panel">
             <p class="eyebrow">Expected rewards</p>
             <div class="summary-grid">
               <div>
@@ -149,74 +152,79 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <section id="screen-fish" class="screen">
-          <div class="panel">
-            <p class="eyebrow">Fishing</p>
-            <h2>Spend casts to catch fish.</h2>
-            <div class="fish-actions">
-              <div>
-                <p class="label">Available casts</p>
-                <p class="value" id="fish-casts">0</p>
-              </div>
-              <button class="primary" id="cast-button">Cast (1)</button>
+      <div class="modal" id="modal-fish" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">Fishing</p>
+              <h2>Spend casts to catch fish.</h2>
             </div>
-            <div class="notice" id="fish-message"></div>
+            <button class="close" data-modal-close aria-label="Close">✕</button>
           </div>
-
-          <div class="panel">
+          <div class="fish-actions">
+            <div>
+              <p class="label">Available casts</p>
+              <p class="value" id="fish-casts">0</p>
+            </div>
+            <button class="primary" id="cast-button">Cast (1)</button>
+          </div>
+          <div class="notice" id="fish-message"></div>
+          <div class="summary-panel">
             <p class="eyebrow">Catch pool</p>
             <div class="fish-grid" id="fish-pool"></div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <section id="screen-history" class="screen">
-          <div class="panel">
-            <p class="eyebrow">History</p>
-            <h2>Your logged days.</h2>
-            <div class="history-list" id="history-list"></div>
-          </div>
-        </section>
-
-        <section id="screen-progress" class="screen">
-          <div class="panel">
-            <p class="eyebrow">Progress</p>
-            <h2>Level up the fisherman.</h2>
-            <div class="progress-header">
-              <div>
-                <p class="label">Level</p>
-                <p class="value" id="progress-level">1</p>
-              </div>
-              <div>
-                <p class="label">Total pearls</p>
-                <p class="value" id="progress-pearls">0</p>
-              </div>
-              <div>
-                <p class="label">Boardwalk stage</p>
-                <p class="value" id="progress-stage">1</p>
-              </div>
+      <div class="modal" id="modal-history" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">History</p>
+              <h2>Your logged days.</h2>
             </div>
-            <div class="progress-bar">
-              <div class="progress-fill" id="level-progress"></div>
-            </div>
-            <p class="progress-note" id="progress-note">Keep logging to reach the next plank milestone.</p>
+            <button class="close" data-modal-close aria-label="Close">✕</button>
           </div>
+          <div class="history-list" id="history-list"></div>
+        </div>
+      </div>
 
-          <div class="panel">
+      <div class="modal" id="modal-progress" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">Progress</p>
+              <h2>Level up the fisherman.</h2>
+            </div>
+            <button class="close" data-modal-close aria-label="Close">✕</button>
+          </div>
+          <div class="progress-header">
+            <div>
+              <p class="label">Level</p>
+              <p class="value" id="progress-level">1</p>
+            </div>
+            <div>
+              <p class="label">Total pearls</p>
+              <p class="value" id="progress-pearls">0</p>
+            </div>
+            <div>
+              <p class="label">Boardwalk stage</p>
+              <p class="value" id="progress-stage">1</p>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="level-progress"></div>
+          </div>
+          <p class="progress-note" id="progress-note">Keep logging to reach the next plank milestone.</p>
+          <div class="summary-panel">
             <p class="eyebrow">Collection</p>
             <div class="collection-grid" id="collection-grid"></div>
           </div>
-        </section>
-      </main>
-
-      <nav class="bottom-nav">
-        <button data-screen-target="screen-home">Home</button>
-        <button data-screen-target="screen-log">Log Day</button>
-        <button data-screen-target="screen-fish">Fish</button>
-        <button data-screen-target="screen-history">History</button>
-        <button data-screen-target="screen-progress">Progress</button>
-      </nav>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="/main.js"></script>
