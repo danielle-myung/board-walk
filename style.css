@@ -328,6 +328,12 @@ button:active {
   transform: translateY(1px) scale(0.99);
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .primary {
   background: var(--coral);
   color: #fff;

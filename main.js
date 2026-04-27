@@ -122,6 +122,7 @@ function initializeUI() {
   dom.logDate.value = today;
   dom.logGoal.value = state.profile.stepGoal;
   updateLogPreview();
+  showScreen("screen-home");
 }
 
 function showScreen(targetId) {
