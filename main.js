@@ -238,6 +238,7 @@ function updateLogPreview() {
 function handleCast() {
   if (state.profile.casts <= 0) {
     setMessage(dom.fishMessage, "No casts available. Log a day to earn more.");
+    dom.dockCatchText.textContent = "No casts available.";
     return;
   }
 
