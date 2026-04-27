@@ -442,3 +442,48 @@
 2026-04-27T00:41:52.945217Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=58 total_usage_tokens=32974 estimated_token_count=Some(27178) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
 2026-04-27T00:41:53.834020Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
 2026-04-27T00:41:54.835839Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:41:55.836481Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:41:56.837883Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:41:57.838202Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:41:58.839383Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:41:59.060853Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::stream_events_utils: ToolCall: apply_patch *** Begin Patch
+*** Update File: /home/vibecode/workspace/main.js
+@@
+       const reward = entry.rewards || {
+         totalCasts: 0,
+         totalPearls: 0,
+         streakAtDate: 0
+       };
+       const goalText = entry.metGoal ? "Goal met" : "Goal missed";
++      const durationText = `${entry.duration || 0} min`;
+       return `
+         <div class="history-card">
+           <strong>${date}</strong>
+           <div class="meta">
+             <span>${formatNumber(entry.steps)} steps</span>
+             <span>${entry.miles} miles</span>
++            <span>${durationText}</span>
+             <span>${goalText}</span>
+             <span>${reward.totalCasts} casts</span>
+             <span>${reward.totalPearls} pearls</span>
+             <span>Streak ${reward.streakAtDate}</span>
+           </div>
+*** End Patch thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2
+2026-04-27T00:41:59.071599Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=58 total_usage_tokens=33378 estimated_token_count=Some(27658) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=true
+2026-04-27T00:41:59.839994Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:00.841738Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:01.842059Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:02.843560Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:03.844408Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:04.845657Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:05.846210Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:06.847314Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:07.848225Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:08.122841Z  INFO session_loop{thread_id=019dcc5e-22f2-7330-a996-44f526f8cfb2}: codex_core::codex: post sampling token usage turn_id=58 total_usage_tokens=34067 estimated_token_count=Some(28478) auto_compact_limit=244800 token_limit_reached=false needs_follow_up=false
+2026-04-27T00:42:08.849042Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:09.850657Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:10.851943Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:11.853134Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:12.854665Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:13.855855Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)
+2026-04-27T00:42:14.856742Z  INFO codex_core::skills::manager: skills cache cleared (1 entries)

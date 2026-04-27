@@ -307,12 +307,14 @@ function renderHistory() {
         streakAtDate: 0
       };
       const goalText = entry.metGoal ? "Goal met" : "Goal missed";
+      const durationText = `${entry.duration || 0} min`;
       return `
         <div class="history-card">
           <strong>${date}</strong>
           <div class="meta">
             <span>${formatNumber(entry.steps)} steps</span>
             <span>${entry.miles} miles</span>
+            <span>${durationText}</span>
             <span>${goalText}</span>
             <span>${reward.totalCasts} casts</span>
             <span>${reward.totalPearls} pearls</span>
