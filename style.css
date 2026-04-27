@@ -282,6 +282,7 @@ main {
     #2b6e8e 20px 40px
   );
   border-top: 4px solid #174252;
+  z-index: 1;
 }
 
 .dock {
@@ -292,6 +293,7 @@ main {
   width: 88%;
   display: flex;
   align-items: center;
+  z-index: 3;
 }
 
 .dock-ui {
@@ -304,6 +306,7 @@ main {
   border: 3px solid var(--wood-dark);
   padding: 0.5rem;
   box-shadow: 0 6px 0 var(--wood-dark);
+  z-index: 6;
 }
 
 .dock-button {
@@ -327,7 +330,7 @@ main {
 
 .dock-planks {
   height: 100%;
-  width: calc(38% + (var(--boardwalk-stage) * 12%));
+  width: var(--dock-length);
   background: repeating-linear-gradient(
     90deg,
     #c38a53 0 14px,
@@ -336,6 +339,33 @@ main {
   border: 4px solid var(--wood-dark);
   border-right: none;
   transition: width 0.6s steps(5, end);
+  position: relative;
+}
+
+.dock-planks::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 -12px 0;
+  height: 14px;
+  background: repeating-linear-gradient(
+    90deg,
+    #5e3a1c 0 26px,
+    transparent 26px 52px
+  );
+}
+
+.dock-planks::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 12px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #8a5b2f 0 20px,
+    #6f4120 20px 40px
+  );
 }
 
 .dock-end {
